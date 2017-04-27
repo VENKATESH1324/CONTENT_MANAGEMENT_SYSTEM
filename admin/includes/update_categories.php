@@ -18,7 +18,7 @@
 
 							<?php	} } ?>
 
-							<?php  // update query
+							<?php  // update query on new page
 
 								if(isset($_POST['update_category'])){
 
@@ -30,6 +30,7 @@
 
 								}
 							}
+
 
 							?>
 
