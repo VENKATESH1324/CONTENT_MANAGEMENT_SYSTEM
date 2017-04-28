@@ -11,7 +11,6 @@ if(isset($_POST['submit'])){
 
 		echo "This field should not be empty";
 
-
 	}else{
 
 		$query = "INSERT INTO categories(cat_title)";
@@ -26,8 +25,6 @@ if(isset($_POST['submit'])){
 }
 
 }
-
-
 
 function findAllCategories(){
 
@@ -46,14 +43,9 @@ while($row = mysqli_fetch_assoc($result_cat)){
 	echo "<td><a href='categories.php?edit={$cat_id}'>Edit</a></td>";
 	echo "</tr>";
 
-
 }
 
-
-
-
 }
-
 
 
 function deleteCategories(){
@@ -66,19 +58,7 @@ if(isset($_GET['delete'])){
 	$result = mysqli_query($connection,$query_delete);
 	header("Location: categories.php");  //to get the page categories.php after executing delete query
 
-
-
 }
-
-
-
-
-	
 }
-
-
-
-
-
 
 ?>
