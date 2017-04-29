@@ -1,7 +1,19 @@
 <?php
 
+function confirmQuery($result){  //to check for any error 
 
-function insert_categories(){   
+if(!$result){
+
+	global $connection;
+	die("QUERY FAILED .".mysqli_error($connection));
+
+}
+
+}
+
+
+
+function insert_categories(){    //function responsible for inserting and making sure that title field should not be empty
 	global $connection;
 
 if(isset($_POST['submit'])){
