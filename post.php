@@ -55,13 +55,51 @@
                 <!-- Blog Comments -->
 
                 <!-- Comments Form -->
+
+<?php 
+        if(isset($_POST['create_comment'])){
+            $the_post_id = $_GET['p_id'];
+
+            $comment_author = $_POST['comment_author'];
+            $comment_email = $_POST['comment_email'];
+            $comment_content = $_POST['comment_content'];
+
+            $query = "INSERT INTO comments (comment_post_id,comment_author,comment_email,comment_content,comment_status,comment_date)";
+            $query .= "VALUES ($the_post_id,'{$comment_author}','{$comment_email}','{$comment_content}','unapproved',now())";
+
+            $create_comment_query = mysqli_query($connection,$query);
+            if(!$create_comment_query){
+                die('QUERY FAILED'.mysqli_error($connection));
+
+            }
+
+
+        }
+
+
+
+?>
+
+
                 <div class="well">
                     <h4>Leave a Comment:</h4>
-                    <form role="form">
-                        <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
+                    <form action="" method="post" role="form">
+
+                     <div class="form-group">
+                        <label for="Author">Author</label>
+                        <input type="text" class="form-control" name ="comment_author">
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+
+                    <div class="form-group">
+                    <label for="Author">Email</label>
+                        <input type="email" class="form-control" name ="comment_email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Author">Your Comment</label>
+                        <textarea name="comment_content" class="form-control" rows="3"></textarea>
+                    </div>
+                        <button name="create_comment" type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
 
