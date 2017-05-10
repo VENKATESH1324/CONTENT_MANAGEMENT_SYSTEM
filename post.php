@@ -54,7 +54,7 @@
 
                 <!-- Blog Comments -->
 
-                <!-- Comments Form -->
+               
 
 <?php 
         if(isset($_POST['create_comment'])){
@@ -74,13 +74,20 @@
             }
 
 
+
+$query = "UPDATE posts SET post_comment_count = post_comment_count+1 WHERE post_id = $the_post_id";
+//$query .= "WHERE post_id = $the_post_id";
+
+$update_comment_count = mysqli_query($connection,$query);
+
+
+
+
         }
-
-
 
 ?>
 
-
+ <!-- Comments Form -->
                 <div class="well">
                     <h4>Leave a Comment:</h4>
                     <form action="" method="post" role="form">
@@ -141,19 +148,6 @@ $comment_author = $row['comment_author'];
 
 
 <?php } ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                 <!-- Comment -->
         
